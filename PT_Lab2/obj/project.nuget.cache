@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "6K7H4O2WI3M/Am4aw25eTD3JS4WgsgmCedHf8sCTKwkYpcxPzRp5mVa9IaKpiy0U5h/C7Kbx2yzqHHZxg2K1ig==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\choja\\source\\repos\\PT_Lab2\\PT_Lab2\\PT_Lab2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\choja\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.14\\microsoft.netcore.app.host.win-x64.5.0.14.nupkg.sha512"
+  ],
+  "logs": []
+}
