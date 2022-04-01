@@ -131,16 +131,34 @@ namespace PT_Lab2
         {
             TreeViewItem item = sender as TreeViewItem;
             string path = item.Tag.ToString();
-            StatusBarTextBlock.Text = path;
+            StatusBarTextBlock.Text = HandleAttributes(path);
 
             //System.Windows.Forms.MessageBox.Show("Clicked: " + path);
         }
 
-        private char[] HandleAttributes(string path)
+        private string HandleAttributes(string path)
         {
-            char[] attributes = new char[4];
+            char[] attributes = new char[4] ;
 
-            return attributes;
+            FileAttributes fileAttributes = File.GetAttributes(path);
+
+            if ((fileAttributes & FileAttributes.ReadOnly) == FileAttributes.ReadOnly)
+                attributes[0] = 'r';
+            else attributes[0] = '-';
+
+            if ((fileAttributes & FileAttributes.Archive) == FileAttributes.Archive)
+                attributes[1] = 'a';
+            else attributes[1] = '-';
+
+            if ((fileAttributes & FileAttributes.System) == FileAttributes.System)
+                attributes[2] = 's';
+            else attributes[2] = '-';
+
+            if ((fileAttributes & FileAttributes.Hidden) == FileAttributes.Hidden)
+                attributes[3] = 'h';
+            else attributes[3] = '-';
+
+            return new string(attributes);
         }
 
 
