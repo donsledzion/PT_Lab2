@@ -25,7 +25,7 @@
         <GridSplitter Grid.Column="1" Width="200" HorizontalAlignment="Stretch"/>
         <ScrollViewer x:Name="ScrollViewer1" Grid.Column="2" FontSize="12" Margin="10,25,10,29"/>
         <StatusBar DockPanel.Dock="Bottom"  Grid.ColumnSpan="3" Margin="0,400,0,10" >
-            <TextBlock x:Name="StatusBarTextBlock" Text="TerefereKukuRykuRypCipCip" Width="373" />
+            <TextBlock x:Name="StatusBarTextBlock" Text="TerefereKukuRykuRypCipCip" Width="373" />           
         </StatusBar>
     </Grid>
 </Window>

@@ -33,15 +33,7 @@ namespace PT_Lab2
             {
                 _directory = folderBrowserDialog.SelectedPath;
 
-                var root = new TreeViewItem
-                {
-                    Header = Path.GetFileName(_directory),
-                    Tag = _directory
-                };
-                //root.Selected += ClearScrollViewer;
-                TreeView1.Items.Add(root);
-
-                ListContent(_directory, sortType, sortOrder, root);
+                DisplayTreeView();
             }
         }
 
@@ -74,14 +66,13 @@ namespace PT_Lab2
             foreach (string directory in directories)
             {
                 DirectoryInfo dirInfo = new DirectoryInfo(directory);
-                //Console.WriteLine(Indentation(directory) + "-" + Path.GetFileName(directory) + "[" + dirInfo.ContentCount() + "]");
                 
                 var item = new TreeViewItem
                 {
                     Header = Path.GetFileName(directory),
                     Tag = directory
                 };
-                item.Selected += ClearScrollViewer;
+                HandleContextMenu(item);                
                 parent.Items.Add(item);
                 
                 ListContent(directory, sortType, sortOrder, item);
@@ -90,7 +81,6 @@ namespace PT_Lab2
             foreach (string file in files)
             {
                 FileInfo fileInfo = new FileInfo(file);
-                //Console.WriteLine(Indentation(file) + Path.GetFileName(file) + "\t|| " + fileInfo.FormattedAttributes());
                 var item = new TreeViewItem
                 {
                     Header = Path.GetFileName(file),                    
@@ -111,11 +101,8 @@ namespace PT_Lab2
         }
 
         private void DisplayFile(object sender, RoutedEventArgs e)
-        {
-            
+        {            
             TreeViewItem item = sender as TreeViewItem;
-
-            //System.Windows.Forms.MessageBox.Show("Clicked: " + item.Tag.ToString());
             TextBlock myTextBlock = new TextBlock();
             myTextBlock.Text = File.ReadAllText(item.Tag.ToString(), System.Text.Encoding.UTF8);
             myTextBlock.TextWrapping = TextWrapping.Wrap;
@@ -132,8 +119,6 @@ namespace PT_Lab2
             TreeViewItem item = sender as TreeViewItem;
             string path = item.Tag.ToString();
             StatusBarTextBlock.Text = HandleAttributes(path);
-
-            //System.Windows.Forms.MessageBox.Show("Clicked: " + path);
         }
 
         private string HandleAttributes(string path)
@@ -161,11 +146,84 @@ namespace PT_Lab2
             return new string(attributes);
         }
 
+        private void DeleteItem(object sender, RoutedEventArgs e)
+        {
+            MenuItem item = sender as MenuItem;
+            string path = item.Tag.ToString();
+            FileAttributes attr = File.GetAttributes(path);
+            try
+            {
+                if ((attr & FileAttributes.Directory) == FileAttributes.Directory)
+                    Directory.Delete(path, true);
+                else
+                    File.Delete(path);
+                DisplayTreeView();
+            }
+            catch
+            {
+                System.Windows.MessageBox.Show("Nie udało się usunąć pliku!");
+            }
+        }
 
+        private void HandleContextMenu(TreeViewItem item)
+        {
+            string path = item.Tag.ToString();
+            FileAttributes attr = File.GetAttributes(path);
+            
+            ContextMenu myContextMenu = new ContextMenu();
+            if ((attr & FileAttributes.Directory) == FileAttributes.Directory)
+            {
+                MenuItem createMenuItem = new MenuItem();
+                createMenuItem.Header = "New";
+                createMenuItem.Tag = item.Tag;
+                createMenuItem.Click += AddFileDirectory;
+                myContextMenu.Items.Add(createMenuItem);
+            }
+            MenuItem deleteMenuItem = new MenuItem();
+            deleteMenuItem.Header = "Delete";
+            deleteMenuItem.Tag = item.Tag;
+            deleteMenuItem.Click += DeleteItem;
+            myContextMenu.Items.Add(deleteMenuItem);
+            item.ContextMenu = myContextMenu;
+        }
 
+        private void DisplayTreeView()
+        {
+            var root = new TreeViewItem
+            {
+                Header = Path.GetFileName(_directory),
+                Tag = _directory
+            };
+            TreeView1.Items.Clear();
+            TreeView1.Items.Add(root);
 
+            ListContent(_directory, sortType, sortOrder, root);
+        }
 
+        private void AddFileDirectory(object sender, RoutedEventArgs e)
+        {
+            MenuItem item = sender as MenuItem;
+            string path = item.Tag.ToString();
 
+            InputWindow input = new InputWindow();
+            input.ShowDialog();
+            string fileName = input.FileName;
+            try
+            {
+                if(Path.HasExtension(Path.Combine(path,fileName)))
+                    File.Create(Path.Combine(path, fileName));
+                else
+                    Directory.CreateDirectory(Path.Combine(path, fileName));
+                DisplayTreeView();
+            }
+            catch
+            {
+                System.Windows.MessageBox.Show("Nie udało się utworzyć pliku");
+            }
+            
+            
+
+        }
 
     }
 }

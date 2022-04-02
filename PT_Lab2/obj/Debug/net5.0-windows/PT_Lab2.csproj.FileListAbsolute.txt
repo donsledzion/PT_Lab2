@@ -1,3 +1,8 @@
+C:\Users\choja\source\repos\PT_Lab2\PT_Lab2\obj\Debug\net5.0-windows\PT_Lab2.csproj.AssemblyReference.cache
+C:\Users\choja\source\repos\PT_Lab2\PT_Lab2\obj\Debug\net5.0-windows\MainWindow.g.cs
+C:\Users\choja\source\repos\PT_Lab2\PT_Lab2\obj\Debug\net5.0-windows\App.g.cs
+C:\Users\choja\source\repos\PT_Lab2\PT_Lab2\obj\Debug\net5.0-windows\PT_Lab2_MarkupCompile.cache
+C:\Users\choja\source\repos\PT_Lab2\PT_Lab2\obj\Debug\net5.0-windows\PT_Lab2_MarkupCompile.lref
 C:\Users\choja\source\repos\PT_Lab2\PT_Lab2\bin\Debug\net5.0-windows\PT_Lab2.exe
 C:\Users\choja\source\repos\PT_Lab2\PT_Lab2\bin\Debug\net5.0-windows\PT_Lab2.deps.json
 C:\Users\choja\source\repos\PT_Lab2\PT_Lab2\bin\Debug\net5.0-windows\PT_Lab2.runtimeconfig.json
@@ -5,11 +10,6 @@ C:\Users\choja\source\repos\PT_Lab2\PT_Lab2\bin\Debug\net5.0-windows\PT_Lab2.run
 C:\Users\choja\source\repos\PT_Lab2\PT_Lab2\bin\Debug\net5.0-windows\PT_Lab2.dll
 C:\Users\choja\source\repos\PT_Lab2\PT_Lab2\bin\Debug\net5.0-windows\ref\PT_Lab2.dll
 C:\Users\choja\source\repos\PT_Lab2\PT_Lab2\bin\Debug\net5.0-windows\PT_Lab2.pdb
-C:\Users\choja\source\repos\PT_Lab2\PT_Lab2\obj\Debug\net5.0-windows\PT_Lab2.csproj.AssemblyReference.cache
-C:\Users\choja\source\repos\PT_Lab2\PT_Lab2\obj\Debug\net5.0-windows\MainWindow.g.cs
-C:\Users\choja\source\repos\PT_Lab2\PT_Lab2\obj\Debug\net5.0-windows\App.g.cs
-C:\Users\choja\source\repos\PT_Lab2\PT_Lab2\obj\Debug\net5.0-windows\PT_Lab2_MarkupCompile.cache
-C:\Users\choja\source\repos\PT_Lab2\PT_Lab2\obj\Debug\net5.0-windows\PT_Lab2_MarkupCompile.lref
 C:\Users\choja\source\repos\PT_Lab2\PT_Lab2\obj\Debug\net5.0-windows\MainWindow.baml
 C:\Users\choja\source\repos\PT_Lab2\PT_Lab2\obj\Debug\net5.0-windows\PT_Lab2.g.resources
 C:\Users\choja\source\repos\PT_Lab2\PT_Lab2\obj\Debug\net5.0-windows\PT_Lab2.GeneratedMSBuildEditorConfig.editorconfig
@@ -20,3 +20,5 @@ C:\Users\choja\source\repos\PT_Lab2\PT_Lab2\obj\Debug\net5.0-windows\PT_Lab2.dll
 C:\Users\choja\source\repos\PT_Lab2\PT_Lab2\obj\Debug\net5.0-windows\ref\PT_Lab2.dll
 C:\Users\choja\source\repos\PT_Lab2\PT_Lab2\obj\Debug\net5.0-windows\PT_Lab2.pdb
 C:\Users\choja\source\repos\PT_Lab2\PT_Lab2\obj\Debug\net5.0-windows\PT_Lab2.genruntimeconfig.cache
+C:\Users\choja\source\repos\PT_Lab2\PT_Lab2\obj\Debug\net5.0-windows\InputWindow.g.cs
+C:\Users\choja\source\repos\PT_Lab2\PT_Lab2\obj\Debug\net5.0-windows\InputWindow.baml
